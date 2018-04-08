@@ -1,0 +1,69 @@
+'###############################################################
+
+' Pilotage d'une matrice miniature à Leds à commande I2C  
+' @Lextronic 2012 - 07/07/2012 - version Cubloc Studio 3.3.4
+'
+' Programme donne a titre d'exemple. A utiliser dans le cadre d'une initiation aux modules CUBLOC
+' (l utilisation commerciale de ce programme est interdite). Lextronic decline toute responsabilite en
+'  cas de prejudice resultant de l'utilisation de cette note d'application.
+'###############################################################  
+  
+
+Const Device = CB210 
+
+Dim x As Integer            ' Registre coordonne aiguilles
+Dim y As Integer            ' Registre coordonne aiguilles
+Dim xm As Integer         ' Registre memoire coordonne aiguilles
+Dim ym As Integer         ' Registre memoire coordonne aiguilles
+Dim angle As Integer      ' Variable angle
+Dim mangle As Integer   ' Variable memore angle
+Dim errorcom As Byte      ' Registre communication I2C
+
+Delay 500 
+Opencom 1,230400,3,10,70
+Delay 500
+Putstr 1,"U"                    ' Envoi caractere de synchronisation
+Delay 500
+Putstr 1,"E"                    ' Efface l'ecran
+Delay 100 
+Putstr 1,"p",&h01            ' Selection objet non plein
+Delay 1
+Putstr 1,"C",64,64,63,&h07,&hE0 ' Trace contour cercle boussole
+Delay 100 
+Set I2c 8,9                     ' Configure ports pour liaison I2C
+Putstr 1,"p",&h00            ' Selection objet plein
+Delay 500
+
+Do 
+
+' ####### Recuperation donnee de la boussole ############## 
+I2cstart ' Condition Start I2C
+errorcom = I2cwrite (&HC0)              ' Adresse du module CMPS03
+errorcom = I2cwrite (0)                    ' Selectionne adresse registre a lire
+I2cstart ' Condition Start I2C
+errorcom = I2cwrite (&HC1)              ' Selectionne condition de lecture I2C
+angle = I2cread(0)                         ' Lecture N° revision module CMPS03
+angle = I2cread(0)                         ' lecture valeur angle (0 - 255)
+angle.Byte1=I2cread(0)                  ' Recupere octet poids fort angle
+angle.Byte0=I2cread(0)                  ' Recupere octet poids faible angle
+errorcom = I2cwrite (&HC1)             ' Selectionne condition de lecture I2C
+I2cstop                                         ' Condition Stop I2C
+
+' ####### Dessine aiguille boussole ##############
+
+x = 64 - Cos(((angle/10) * 3.141593) / 180.0) * 43
+y = 64 - Sin(((angle/10) * 3.141593) / 180.0) * 43
+
+If xm <> x Or ym <> y Then
+  Putstr 1,"C",127-xm,127-ym,4,&h00,&h00         ' efface rond
+  Delay 5
+  Putstr 1,"L",xm,ym,127-xm,127-ym,&h00,&h00 ' efface aiguille
+  Delay 3
+  Putstr 1,"L",x,y,127-x,127-y,&h0FF,&hE0            ' Affiche aiguille
+  Delay 3
+  Putstr 1,"C",127-x,127-y,4,&h0FF,&hE0
+  Delay 50 
+  xm = x                                                         ' Memorise ancienne coordonee x 
+  ym = y                                                          ' Memorise ancienne coordonee y 
+Endif
+Loop

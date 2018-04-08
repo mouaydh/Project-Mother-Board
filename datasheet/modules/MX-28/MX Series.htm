@@ -1,0 +1,178 @@
+<!--?xml version="1.0" encoding="utf-8" ?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="en-US">
+<meta name="generator" content="Adobe RoboHelp 9">
+<title>MX Series</title>
+<link rel="StyleSheet" href="MX%20Series_fichiers/default.css" type="text/css">
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="MX%20Series_fichiers/whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="MX%20Series_fichiers/whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="MX%20Series_fichiers/whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="MX%20Series_fichiers/whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="MX%20Series_fichiers/whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="MX%20Series_fichiers/whtopic.js"></script>
+
+</head>
+
+<body><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = document.location.href;
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = strUrl.substring(0, n);
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Product Information\nDynamixel\nMX Series");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../techsupport_eng.htm", "", ">", "Home", "../../faq.htm");
+document.write("<a href=\"../../product_manual.htm\">Product Information<\/a> > <a href=\"../dxl_main.htm\">Dynamixel<\/a> > MX Series<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../techsupport_eng.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script><style type="text/css">.whtbtnshow{font-family:;font-size:10pt;font-style:;font-weight:;text-decoration:;color:;}</style><table width="100%"><tbody><tr><td width="33%"><div align="left"><table border="0" cellpadding="2" cellspacing="0"><tbody><tr><td><a title="Show Navigation Component" class="whtbtnshow" href="javascript:void(0);" onclick="show();return false;">Show</a>&nbsp;</td></tr></tbody></table></div></td></tr></tbody></table><p style="text-align:right"> <a style="" href="http://support.robotis.com/en/faq.htm">Home</a> &gt; <a href="http://support.robotis.com/en/product_manual.htm">Product Information</a> &gt; <a href="http://support.robotis.com/en/product/dxl_main.htm">Dynamixel</a> &gt; MX Series</p>
+<div style="width: 100%; position: relative;" id="header">
+	<p style="color: #808080; font-style: normal; font-weight: normal;">ROBOTIS 
+	 e-Manual&nbsp;v1.12.00</p>
+</div>
+
+
+<h1>MX Series</h1>
+<ul>
+	<li class="LinkList"><a href="http://support.robotis.com/en/product/dynamixel/mx_series/mx-28.htm">MX-28T / MX-28R</a></li>
+	<li class="LinkList"><a href="http://support.robotis.com/en/product/dynamixel/mx_series/mx-64.htm">MX-64T / MX-64R</a></li>
+	<li class="LinkList"><a href="http://support.robotis.com/en/product/dynamixel/mx_series/mx-106.htm">MX-106T / MX-106R</a></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h2>Connection to UART&nbsp;(TTL : MX-28T, MX-64T, MX-106T) </h2>
+<p style="margin-left: 40px;">To control the Dynamixel actuators, the main 
+ controller needs to convert its UART signals to the half duplex type. 
+ The recommended circuit diagram for this is shown below.</p>
+<p style="margin-left: 40px;"><img src="MX%20Series_fichiers/mx_series_circuit_.png" alt="mx_series_circuit_.png" style="border: none;" border="0" height="315" width="750"></p>
+&nbsp; 
+<br>&nbsp; 
+<h2>Pin Assignment</h2>
+<p style="margin-left: 40px;">The connector pin assignments are as the 
+ following. The two connectors on the Dynamixel are connected pin to pin, 
+ thus the Dynamixel can be operated with only one connector attached.</p>
+<p style="margin-left: 40px;"><img src="MX%20Series_fichiers/mx_series_pin.png" alt="mx_series_pin.png" style="border: none;" border="0" height="302" width="510"></p>
+<p>&nbsp;&nbsp;</p>
+<h2>Connection to UART&nbsp;(RS485 : MX-28R, MX-64R, MX-106R) </h2>
+<p style="margin-left: 40px;">To control MX Series with a personally made 
+ Main Controller, the signal of Main Controller UART should be converted 
+ into RS485 type signal. The following is a recommended circuit diagram.</p>
+<p>&nbsp;</p>
+<p style="margin-left: 40px;"><img src="MX%20Series_fichiers/rx_series_circuit.png" alt="rx_series_circuit.png" style="border: none;" border="0" height="322" width="536"></p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<p style="margin-left: 40px;">The power of Dynamixel is supplied via Pin1(-), 
+ Pin2(+).</p>
+<p style="margin-left: 40px;">(The above circuit is built into Dynamixel-only 
+ controller.)</p>
+<p style="margin-left: 40px;">In the above circuit diagram, the direction 
+ of data signal of TxD and RxD in the TTL Level is determined according 
+ to the level of DIRECTION 485 as follows:</p>
+<p style="margin-left: 40px;">In case of DIRECTION485 Level = High: The 
+ signal of TxD is output to D+ and D-.</p>
+<p style="margin-left: 40px;">In case of DIRECTION485 Level = Low: The 
+ signal of D+ and D- is output to RxD.</p>
+<p>&nbsp;</p>
+<h2>Pin Assignment</h2>
+<p style="margin-left: 40px;">The pin assignment of a connector is as shown 
+ below. The MX-series Dynamixel has &nbsp;two 4pin connectors on it and 
+ those two connectors have the same function. So, you may use any of the 
+ two when connecting the actuators.</p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<p style="margin-left: 40px;"><img src="MX%20Series_fichiers/rx_series_pin.png" alt="rx_series_pin.png" style="border: none;" border="0" height="302" width="510"></p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<p style="margin-left: 40px;"><span style="font-weight: bold;"><b>Wiring</b></span></p>
+<p style="margin-left: 40px;">Wiring should be done Pin2Pin as shown below. 
+ By connecting as such, several MX-series can be controlled on a BUS.</p>
+<p style="margin-left: 40px;"><img src="MX%20Series_fichiers/rx_series_wiring.png" alt="rx_series_wiring.png" style="border: none;" border="0" height="232" width="616"></p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<table class="InfoTable" style="left: 0px; top: 1919px; margin-left: 40px;" cellspacing="0px" width="68.599%">
+	<colgroup><col style="width: 100%;">
+	</colgroup><tbody><tr>
+		<td><p>Caution : Please pay special attention to avoid incorrect 
+		 pin assignments in wiring. Otherwise, Dynamixel may be damaged.</p></td>
+	</tr>
+</tbody></table>
+<p style="margin-left: 40px;">&nbsp;</p>
+&nbsp;&nbsp;&nbsp; 
+<h2>Confirmation of Connection</h2>
+<p style="margin-left: 40px;">The LED of Dynamixel flickers once if the 
+ power is supplied to Dynamixel properly via wiring.</p>
+<div style="width: 100%; position: relative;" id="footer">
+	<br>
+	
+	<hr align="center">
+	<p style="text-align: right; font-size: 8pt; color: #808080;"><a href="mailto:support@robotis.com">Error 
+	 Report</a></p>
+	<p style="text-align: right; font-size: 8pt; color: #808080;">Copyrights 
+	 (c) 2010 &nbsp;<a href="http://www.robotis.com/" target="_top">ROBOTIS</a> 
+	 &nbsp;All rights reserved.</p>
+</div>
+<script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+
+
+</body></html>
